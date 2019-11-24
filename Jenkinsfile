@@ -6,13 +6,14 @@ pipeline{
     stages{
         stage('terraform init'){
             steps{
-                sh "terraform init"
+                sh "terraform init and apply"
+                sh "terraform apply"
             }
         }
     }
 }
 
-def getTerraformPath{}{
+def getTerraformPath(){
     def tfHome = tool name: 'terra12', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
     return tfHome
 }
